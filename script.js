@@ -1,7 +1,6 @@
 
 function calcularResultado() {
-
-    let carreras = {
+    const carreras = {
         animacion: 0,
         semiconductores: 0,
         ciberseguridad: 0,
@@ -24,7 +23,7 @@ function calcularResultado() {
 
     
     for (let i = 1; i <= 5; i++) {
-        let respuesta = document.querySelector(
+        const respuesta = document.querySelector(
             'input[name="pregunta' + i + '"]:checked'
         );
 
@@ -75,7 +74,7 @@ function calcularResultado() {
         }
     }
 
-    let nombres = {
+    const nombres = {
         animacion: "ANIMACIÓN DIGITAL",
         semiconductores: "SEMICONDUCTORES Y MICROELECTRÓNICA",
         ciberseguridad: "TECNÓLOGO EN CIBERSEGURIDAD",
@@ -100,10 +99,24 @@ function calcularResultado() {
     document.getElementById("resultado").textContent =
         "Tu carrera ideal es: " + nombres[ganadora];
 
-    let porcentaje = (max / 5) * 100;
+    const porcentaje = Math.round((max / 5) * 100);
 
     document.getElementById("afinidad").value = porcentaje;
     document.getElementById("porcentaje").textContent = porcentaje + "%";
 
     document.getElementById("progreso").value = 100;
 }
+
+document.addEventListener("change", function (event) {
+    if (event.target.matches('input[type="radio"]')) {
+        let answered = 0;
+
+        for (let i = 1; i <= 5; i++) {
+            if (document.querySelector('input[name="pregunta' + i + '"]:checked')) {
+                answered++;
+            }
+        }
+
+        document.getElementById("progreso").value = answered * 20;
+    }
+});
