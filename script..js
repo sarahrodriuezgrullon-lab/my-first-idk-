@@ -22,7 +22,7 @@ function calcularResultado() {
         seguridad: 0
     };
 
-    // Comprobar que todas las preguntas tengan respuesta
+    
     for (let i = 1; i <= 5; i++) {
         let respuesta = document.querySelector(
             'input[name="pregunta' + i + '"]:checked'
