@@ -6,7 +6,6 @@ The assessment uses a series of questions to evaluate individual preferences and
 
 ## Technologies
 - HTML5
-- CSS3
 - JavaScript
 
 Developed as an independent web development project.
